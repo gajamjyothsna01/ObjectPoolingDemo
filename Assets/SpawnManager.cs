@@ -29,10 +29,21 @@ public class SpawnManager : MonoBehaviour
             Debug.Log("Asteroid");
             GameObject temp = PoolScript.instance.GetObjectsFromPool("Asteroid");
             Debug.Log("Asteroid spawn");
-            temp.transform.position = this.transform.position + new Vector3(Random.Range(-15f, 15f),4f ,0f);
+            temp.transform.position = this.transform.position + new Vector3(Random.Range(-10f, 15f),4f ,0f);
             temp.SetActive(true);
-            time=0;
+            //time=0;
+
+
+            Debug.Log("Health");
+            GameObject tempHealth = PoolScript.instance.GetObjectsFromPool("Health");
+            Debug.Log("Health spawn");
+            tempHealth.transform.position = this.transform.position + new Vector3(Random.Range(-10f, 15f), 4f, 0f);
+            tempHealth.SetActive(true);
+            time = 0;
         }
+          
+
+        
         //Debug.Log(temp);
         /*if (temp != null)
         {

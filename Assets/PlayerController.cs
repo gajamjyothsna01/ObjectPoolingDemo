@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class PlayerController : MonoBehaviour
     int maxHealth = 10;
     int health = 10;
     public bool isGameOver = false;
+    public Text displayHealthText;
+    public Text healthText;
+    public Slider healthSlider;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,12 +25,31 @@ public class PlayerController : MonoBehaviour
     {
         if(!isGameOver)
         {
+            healthSlider.value = (float)health / 10;
             float inputX = Input.GetAxis("Horizontal");
-            //float inputY = Input.GetAxis("Vertical");
+            float inputY = Input.GetAxis("Vertical");
 
-            //transform.Translate(Vector3.up * playerSpeed * inputX* Time.deltaTime);
+            transform.Translate(Vector3.right * playerSpeed * inputY* Time.deltaTime);
 
             transform.Translate(Vector3.down * playerSpeed * inputX * Time.deltaTime);
+            
+            if (transform.position.y > 3.9f)
+            {
+                transform.position = new Vector3(transform.position.x, 3.9f, 0);
+            }
+            else if (transform.position.y < -3.9f)
+            {
+                transform.position = new Vector3(transform.position.x, -3.9f, 0);
+            }
+            if (transform.position.x > 15.1f)
+            {
+                transform.position = new Vector3(15.1f, transform.position.y, 0);
+            }
+            else if (transform.position.x < -14.8f)
+            {
+                transform.position = new Vector3(-14.8f, transform.position.y, 0);
+            }
+
 
             //need to clamp player position - restricts out of the Box
 
@@ -58,8 +81,28 @@ public class PlayerController : MonoBehaviour
            
             health--;
             collision.gameObject.SetActive(false);
-            Debug.Log("Current Player Health" + health);
+           // Debug.Log("Current Player Health" + health);
+            healthText.text = health.ToString();
+
+            GameObject tempAsteroid = collision.gameObject;
+            tempAsteroid.SetActive(false);
+
+        }
+        
+        
+
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Health" && health < maxHealth)
+        {
+            Debug.Log("tRIGGERED");
+            health = Mathf.Clamp(health + 1, 0, maxHealth);
+            collision.gameObject.SetActive(false);
+            Debug.Log("iNCREASED HEALTH " + health);
+            healthText.text = health.ToString();    
 
         }
     }
+
 }

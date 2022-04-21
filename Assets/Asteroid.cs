@@ -5,7 +5,7 @@ using UnityEngine;
 public class Asteroid : MonoBehaviour
 {
     public float asteroidSpeed;
-    int score = 0;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -23,8 +23,7 @@ public class Asteroid : MonoBehaviour
     {
         if (collision.gameObject.tag == "Bullet")
         {
-            score++;
-            Debug.Log("Score" + score);
+            GameObject.Find("ScoreManager").GetComponent<ScoreManagerScript>().Score(10);
             collision.gameObject.SetActive(false); //Bullet has to false
 
             this.gameObject.SetActive(false); //Asteroid to be false

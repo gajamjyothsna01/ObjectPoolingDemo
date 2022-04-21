@@ -75,7 +75,7 @@ public class PlayerController : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("Collision");
+        //Debug.Log("Collision");
         if(collision.gameObject.tag == "Asteroid")
         {
            
@@ -96,10 +96,10 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Health" && health < maxHealth)
         {
-            Debug.Log("tRIGGERED");
+            //Debug.Log("tRIGGERED");
             health = Mathf.Clamp(health + 1, 0, maxHealth);
             collision.gameObject.SetActive(false);
-            Debug.Log("iNCREASED HEALTH " + health);
+            //Debug.Log("iNCREASED HEALTH " + health);
             healthText.text = health.ToString();    
 
         }

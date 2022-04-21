@@ -26,17 +26,17 @@ public class SpawnManager : MonoBehaviour
         time = time + Time.deltaTime;
         if (time > 3f)
         {
-            Debug.Log("Asteroid");
+            //Debug.Log("Asteroid");
             GameObject temp = PoolScript.instance.GetObjectsFromPool("Asteroid");
-            Debug.Log("Asteroid spawn");
+            //Debug.Log("Asteroid spawn");
             temp.transform.position = this.transform.position + new Vector3(Random.Range(-10f, 15f),4f ,0f);
             temp.SetActive(true);
             //time=0;
 
 
-            Debug.Log("Health");
+            //Debug.Log("Health");
             GameObject tempHealth = PoolScript.instance.GetObjectsFromPool("Health");
-            Debug.Log("Health spawn");
+            //Debug.Log("Health spawn");
             tempHealth.transform.position = this.transform.position + new Vector3(Random.Range(-10f, 15f), 4f, 0f);
             tempHealth.SetActive(true);
             time = 0;

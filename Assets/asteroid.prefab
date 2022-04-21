@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1703057399424395567}
   - component: {fileID: 1703057399424395566}
-  - component: {fileID: 1703057399424395552}
   - component: {fileID: 1703057399424395553}
   - component: {fileID: 1230273862926380993}
   - component: {fileID: 3525960407777353801}
+  - component: {fileID: -4274187456404536713}
   m_Layer: 0
   m_Name: asteroid
   m_TagString: Asteroid
@@ -86,19 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1703057399424395552
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1703057399424395565}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c1957ed5c9dedb44bd89967d64c5834, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletSpeed: 1
 --- !u!114 &1703057399424395553
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc7397fb320fc7748a1334bbab7704d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  asteroidSpeed: 1
+  asteroidSpeed: 0.25
 --- !u!58 &1230273862926380993
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -140,3 +127,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28b1fe263dbf04b43b1d4534b9618e15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!50 &-4274187456404536713
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1703057399424395565}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

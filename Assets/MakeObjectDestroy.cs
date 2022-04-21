@@ -15,7 +15,7 @@ public class MakeObjectDestroy : MonoBehaviour
     private void OnBecameInvisible()
     {
         //Destroy(gameObject);
-        PoolScript.instance.gameObject.SetActive(false);
+       this.gameObject.SetActive(false);
 
     }
 }

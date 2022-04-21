@@ -28,7 +28,7 @@ public class PoolScript : MonoBehaviour
     {
         
     }
-    private void AddToPool()
+    public void AddToPool()
     {
         foreach (PoolObject item in poolItems)
         {
@@ -43,17 +43,33 @@ public class PoolScript : MonoBehaviour
     }
    public GameObject GetObjectsFromPool(string tagName)
     {
-        for (int i = 0; i < pool.Count; i++)
+        foreach(GameObject item in pool)
         {
-            if(pool[i].gameObject.tag == tagName)
+            if(item.gameObject.tag == tagName  && !item.activeInHierarchy)
             {
-                return pool[i];
-
+               
+                    return item;
+                
             }
         }
         return null;
 
+      /*  foreach (PoolObject item in poolItems)
+        {
+            if(item.prefab.tag== tagName)
+            {
+                GameObject temp = Instantiate(item.prefab);
+                temp.SetActive(false);
+                pool.Add(temp);
+                  return temp;
+
+
+            }
+        }*/
+     
+
     }
+   
 
 }
 
